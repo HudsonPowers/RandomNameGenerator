@@ -7,17 +7,30 @@ namespace RandomNameGenerator
     {
         static void Main(string[] args)
         {
+            if (args.Length > 0 && args[0] == "test")
+            {
+                TestAll();
+                return;
+            }
         }
 
+        public static void TestAll()
+        {
+            bool testPositiveInt = TestPositiveInt.RunTest();
+            Console.WriteLine($"Test GetPositiveInt(Filename): {testPositiveInt}");
 
-/// <summary>
-/// Given a prompt to show to the user, displays the prompt then reads
-///  input from the keyboard until the user enters a positive number.
-///  If the user enters a non-positive number,
-///  this method displays an error message and prompts the user again.
-/// </summary>
-/// <param name="prompt">The message to display to the user</param>
-/// <returns>The positive number the user chose</returns>
+            bool testGenerateRandomName = TestGenerateRandomName.RunTest();
+            Console.WriteLine($"Test GenerateRandomName(Filename): {testGenerateRandomName}");
+        }
+
+        /// <summary>
+        /// Given a prompt to show to the user, displays the prompt then reads
+        ///  input from the keyboard until the user enters a positive number.
+        ///  If the user enters a non-positive number,
+        ///  this method displays an error message and prompts the user again.
+        /// </summary>
+        /// <param name="prompt">The message to display to the user</param>
+        /// <returns>The positive number the user chose</returns>
         public static int GetPositiveInt(string prompt)
         {
             // 1. validate the prompt is a string
@@ -31,12 +44,12 @@ namespace RandomNameGenerator
         }
 
 
-/// <summary>
-/// Given a list of first, middle, and last names,
-///  generate a random name using one entry from each list.
-/// </summary>
-/// <param name="prompt"></param>
-/// <returns>returns the randomly generated name</returns>
+        /// <summary>
+        /// Given a list of first, middle, and last names,
+        ///  generate a random name using one entry from each list.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns>returns the randomly generated name</returns>
         public static string GenerateRandomName(List<string> firstNames, List<string> midNames, List<string> lastNames)
         {
             // 1.Create a random number generator
