@@ -7,6 +7,7 @@ namespace RandomNameGenerator
     {
         public static bool RunTest()
         {
+
             return false;
         }
 
