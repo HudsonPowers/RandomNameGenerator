@@ -15,7 +15,7 @@ namespace RandomNameGenerator
             int expected = 4;
             if (result != expected)
             {
-                Console.Error.WriteLine($"Expected -5 but got 4");
+                Console.Error.WriteLine($"Expected 4 but got {result}");
                 return false;
             }
 
@@ -29,24 +29,23 @@ namespace RandomNameGenerator
                 return false;
             }
 
-            Console.WriteLine("First type in 27. This should result in an invalid message.");
-            Console.WriteLine("Second type in -10. This should not produce an error");
+            Console.WriteLine("First type in -10. This should result in an invalid message.");
+            Console.WriteLine("Second type in 27. This should not produce an error");
             result = Program.GetPositiveInt("How old are you?");
-            expected = -10;
+            expected = 27;
             if (result != expected)
             {
-                Console.Error.WriteLine($"Expected -10 but got {result}");
+                Console.Error.WriteLine($"Expected 27 but got {result}");
                 return false;
-                // would this work even though it should not accept a negative number
             }
 
             Console.WriteLine("First type in Hello World. This should result in an invalid message.");
             Console.WriteLine("Second type in  17. This should not produce an error");
             result = Program.GetPositiveInt("How old are you?");
-            expected = 4;
+            expected = 17;
             if (result != expected)
             {
-                Console.Error.WriteLine($"Expected 4 but got {result}");
+                Console.Error.WriteLine($"Expected 17 but got {result}");
                 return false;
             }
 

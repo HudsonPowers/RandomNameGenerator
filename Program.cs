@@ -36,7 +36,7 @@ namespace RandomNameGenerator
             // 1. validate the prompt is a string
             // 2. Display the prompt
             // 3. Read input from the user
-            // 4.if the user enterd a non-positive number
+            // 4.if the user entered a non-positive number
             // 4a. display error message
             // 4b. go to step 2
             // 5.Otherwise, return the users input
