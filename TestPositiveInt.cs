@@ -29,10 +29,10 @@ namespace RandomNameGenerator
                 return false;
             }
 
-            // TODO(jcollard 2022-03-04): Try a different invalid input, you've already tested this one
-            Console.WriteLine("First type in -10. This should result in an invalid message.");
+            
+            Console.WriteLine("First type in -156. This should result in an invalid message.");
             Console.WriteLine("Second type in 27. This should not produce an error");
-            result = Program.GetPositiveInt("How old are you?");
+            result = Program.GetPositiveInt("How many chickens can you eat?");
             expected = 27;
             if (result != expected)
             {
@@ -50,8 +50,7 @@ namespace RandomNameGenerator
                 return false;
             }
 
-            // TODO(jcollard 2022-03-04): Return true at the very end
-            return false;
+            return true;
         }
 
     }

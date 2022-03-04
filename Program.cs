@@ -33,6 +33,28 @@ namespace RandomNameGenerator
         /// <returns>The positive number the user chose</returns>
         public static int GetPositiveInt(string prompt)
         {
+
+            int positiveNumber;
+
+            do
+            {
+                Console.Write(prompt);
+                string input = Console.ReadLine();
+
+                bool validNumber = int.TryParse(prompt, out positiveNumber);
+
+                if (validNumber == false)
+                {
+                    Console.Error.WriteLine($"you did not enter a valid number");
+                }
+                else if (positiveNumber <= 1)
+                {
+                    Console.WriteLine("Your number was not a positive number");
+                }
+            }
+            while (positiveNumber <= 1);
+            return positiveNumber;
+
             // 1. validate the prompt is a string
             // 2. Display the prompt
             // 3. Read input from the user
@@ -41,8 +63,9 @@ namespace RandomNameGenerator
             // 4b. go to step 2
             // 5.Otherwise, return the users input
 
+
+
             // TODO(jcollard 2022-03-04): Here is an example that might be helpful for completing this method: https://jcollard.github.io/IntroToCSharpSite/examples/read-input
-            return -1;
         }
 
 
@@ -61,6 +84,57 @@ namespace RandomNameGenerator
             // 5.Combine the names together
             // 5a.firstNames[firstIndex] + " " + midNames[midIndex] + " " + lastNames[lastIndex];
             // 6.Return the name
+
+            List<string> names = new List<string>();
+
+            names.Add("Chad");
+            names.Add("Sawyer");
+            names.Add("Daniel");
+            names.Add("Rose");
+            names.Add("Black");
+            names.Add("White");
+            names.Add("Master");
+            names.Add("Coder");
+            names.Add("Brantford");
+            names.Add("Lou");
+            names.Add("Bob");
+            names.Add("Sue");
+            names.Add("Clark");
+            names.Add("Jason");
+            names.Add("Carol");
+            names.Add("Jim");
+            names.Add("Jiffy");
+            names.Add("Susan");
+            names.Add("Susana");
+            names.Add("Box");
+            names.Add("philips");
+            names.Add("Tate");
+            names.Add("Medicant");
+            names.Add("Mexican");
+            names.Add("shaquisha");
+            names.Add("Devon");
+            names.Add("Brown");
+            names.Add("Blue");
+            names.Add("Smith");
+            names.Add("Dean");
+            names.Add("Mark");
+            names.Add("Christian");
+            names.Add("Sophie");
+            names.Add("Sophia");
+            names.Add("Eliza");
+            names.Add("Elise");
+            names.Add("Alex");
+            names.Add("Elan");
+            names.Add("Musk");
+            names.Add("Bill");
+            names.Add("Gates");
+
+            Random generator = new Random();
+
+            int index = generator.Next(0, names.Count);
+
+            string randomName = names[index];
+            Console.WriteLine($"Your name(s) is/are {randomName}");
 
             return null;
         }
