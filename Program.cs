@@ -40,6 +40,8 @@ namespace RandomNameGenerator
             // 4a. display error message
             // 4b. go to step 2
             // 5.Otherwise, return the users input
+
+            // TODO(jcollard 2022-03-04): Here is an example that might be helpful for completing this method: https://jcollard.github.io/IntroToCSharpSite/examples/read-input
             return -1;
         }
 
