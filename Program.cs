@@ -12,7 +12,75 @@ namespace RandomNameGenerator
                 TestAll();
                 return;
             }
+            else
+            {
+                int num = GetPositiveInt("How many names would you like to generate");
+
+                List<string> firstNames = new List<string>();
+                List<string> midNames = new List<string>();
+                List<string> lastNames = new List<string>();
+
+                firstNames.Add("Chad");
+                firstNames.Add("Sawyer");
+                firstNames.Add("Daniel");
+                firstNames.Add("Rose");
+                firstNames.Add("Black");
+                firstNames.Add("White");
+                firstNames.Add("Master");
+                midNames.Add("Coder");
+                midNames.Add("Brantford");
+                midNames.Add("Lou");
+                midNames.Add("Bob");
+                midNames.Add("Sue");
+                midNames.Add("Clark");
+                midNames.Add("Jason");
+                midNames.Add("Carol");
+                midNames.Add("Jim");
+                midNames.Add("Jiffy");
+                midNames.Add("Susan");
+                midNames.Add("Susana");
+                midNames.Add("Box");
+                midNames.Add("philips");
+                lastNames.Add("Tate");
+                firstNames.Add("Medicant");
+                firstNames.Add("Mexican");
+                firstNames.Add("shaquisha");
+                firstNames.Add("Devon");
+                firstNames.Add("Brown");
+                lastNames.Add("Blue");
+                lastNames.Add("Smith");
+                lastNames.Add("Dean");
+                lastNames.Add("Mark");
+                lastNames.Add("Christian");
+                lastNames.Add("Sophie");
+                lastNames.Add("Sophia");
+                lastNames.Add("Eliza");
+                lastNames.Add("Elise");
+                lastNames.Add("Alex");
+                lastNames.Add("Elan");
+                lastNames.Add("Musk");
+                lastNames.Add("Bill");
+                lastNames.Add("Gates");
+              
+                Console.WriteLine($"Generating {num} values.");
+                while (num > 0)
+                {
+                    string name = GenerateRandomName(firstNames, midNames, lastNames);
+                    Console.WriteLine(name);
+                    num = num - 1;
+                }
+                return;
+
+            }
         }
+        // Prompts the user to enter the number of random names to generate
+        // Loads a list of possible first names
+        // Loads a list of possible middle names
+        // Loads a list of possible last names
+        // Randomly selects a first, middle, and last name
+        // Writes the randomly generated name to the console
+        // If more names need to be generated, go to step 5
+        // Otherwise, the program exits
 
         public static void TestAll()
         {
@@ -33,15 +101,18 @@ namespace RandomNameGenerator
         /// <returns>The positive number the user chose</returns>
         public static int GetPositiveInt(string prompt)
         {
-
+            if (prompt == null)
+            {
+                throw new Exception("Cannot display a null prompt");
+            }
             int positiveNumber;
 
             do
             {
-                Console.Write(prompt);
+                Console.WriteLine(prompt);
                 string input = Console.ReadLine();
 
-                bool validNumber = int.TryParse(prompt, out positiveNumber);
+                bool validNumber = int.TryParse(input, out positiveNumber);
 
                 if (validNumber == false)
                 {
@@ -85,58 +156,19 @@ namespace RandomNameGenerator
             // 5a.firstNames[firstIndex] + " " + midNames[midIndex] + " " + lastNames[lastIndex];
             // 6.Return the name
 
-            List<string> names = new List<string>();
 
-            names.Add("Chad");
-            names.Add("Sawyer");
-            names.Add("Daniel");
-            names.Add("Rose");
-            names.Add("Black");
-            names.Add("White");
-            names.Add("Master");
-            names.Add("Coder");
-            names.Add("Brantford");
-            names.Add("Lou");
-            names.Add("Bob");
-            names.Add("Sue");
-            names.Add("Clark");
-            names.Add("Jason");
-            names.Add("Carol");
-            names.Add("Jim");
-            names.Add("Jiffy");
-            names.Add("Susan");
-            names.Add("Susana");
-            names.Add("Box");
-            names.Add("philips");
-            names.Add("Tate");
-            names.Add("Medicant");
-            names.Add("Mexican");
-            names.Add("shaquisha");
-            names.Add("Devon");
-            names.Add("Brown");
-            names.Add("Blue");
-            names.Add("Smith");
-            names.Add("Dean");
-            names.Add("Mark");
-            names.Add("Christian");
-            names.Add("Sophie");
-            names.Add("Sophia");
-            names.Add("Eliza");
-            names.Add("Elise");
-            names.Add("Alex");
-            names.Add("Elan");
-            names.Add("Musk");
-            names.Add("Bill");
-            names.Add("Gates");
 
             Random generator = new Random();
 
-            int index = generator.Next(0, names.Count);
+            int firstIndex = generator.Next(0, firstNames.Count);
+            int midIndex = generator.Next(0, midNames.Count);
+            int lastIndex = generator.Next(0, lastNames.Count);
 
-            string randomName = names[index];
-            Console.WriteLine($"Your name(s) is/are {randomName}");
+            string randomName = firstNames[firstIndex] + " " + midNames[midIndex] + " " + lastNames[lastIndex];
 
-            return null;
+            // Console.WriteLine($"Your name(s) is/are {randomName}");
+
+            return randomName;
         }
 
 
